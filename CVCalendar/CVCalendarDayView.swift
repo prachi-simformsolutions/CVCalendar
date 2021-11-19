@@ -295,7 +295,7 @@ extension CVCalendarDayView {
                     (width, height) = (size, size)
                 }
                 let colors = isOut ? [.gray] : delegate.dotMarker?(colorOnDayView: self)
-                var yOffset = bounds.height / 5
+                var yOffset = (bounds.height / 5) + 5
                 if let y = delegate.dotMarker?(moveOffsetOnDayView: self) {
                     yOffset = y
                 }
