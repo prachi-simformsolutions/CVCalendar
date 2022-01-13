@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 public final class CVCalendarDayView: UIView {
     // MARK: - Public properties
@@ -481,7 +482,10 @@ extension CVCalendarDayView {
         
         switch type {
         case .single:
-            shape = .circle
+            shape = .custom({ rect in
+                let customRect = CGRect(x: rect.minX + 8, y: rect.minY + 8, width: rect.width - 16, height: rect.height - 16)
+                return UIBezierPath(roundedRect: customRect, cornerRadius: 5)
+            })
             
             if let delegate = calendarView.delegate,
                 let shouldShowCustomSelection = delegate.shouldShowCustomSingleSelection?() ,
