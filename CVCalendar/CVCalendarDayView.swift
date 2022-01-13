@@ -483,7 +483,21 @@ extension CVCalendarDayView {
         switch type {
         case .single:
             shape = .custom({ rect in
-                let customRect = CGRect(x: rect.minX + 8, y: rect.minY + 8, width: rect.width - 16, height: rect.height - 16)
+                var width = rect.width
+                var height = rect.height
+                var x = rect.minX
+                var y = rect.minY
+                
+                if (width > 30) {
+                    width -= 16
+                    x += 8
+                }
+                if (height > 30) {
+                    height -= 16
+                    y += 8
+                }
+                
+                let customRect = CGRect(x: x, y: y, width: width, height: height)
                 return UIBezierPath(roundedRect: customRect, cornerRadius: 5)
             })
             
