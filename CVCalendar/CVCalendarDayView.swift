@@ -489,12 +489,12 @@ extension CVCalendarDayView {
                 var y = rect.minY
                 
                 if (width > 30) {
-                    width -= 16
-                    x += 8
+                    width -= 10
+                    x += 5
                 }
                 if (height > 30) {
-                    height -= 16
-                    y += 8
+                    height -= 12
+                    y += 6
                 }
                 
                 let customRect = CGRect(x: x, y: y, width: width, height: height)
