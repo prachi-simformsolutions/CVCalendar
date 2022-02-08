@@ -293,7 +293,7 @@ extension CVCalendarDayView {
                 
                 var (width, height): (CGFloat, CGFloat) = (13, 13)
                 if let size = delegate.dotMarker?(sizeOnDayView: self) {
-                    (width, height) = (size, size)
+                    (width, height) = (4,4)
                 }
                 let colors = isOut ? [.gray] : delegate.dotMarker?(colorOnDayView: self)
                 var yOffset = (bounds.height / 5) + 5
@@ -325,7 +325,9 @@ extension CVCalendarDayView {
                     let dotMarker = CVAuxiliaryView(dayView: self,
                                                     rect: markerFrame, shape: .circle)
                     dotMarker.fillColor = color
-                    dotMarker.center = CGPoint(x: x, y: y)
+                    dotMarker.center = CGPoint(x: x, y: y - 2.5)
+                    dotMarker.layer.cornerRadius = 2
+                    dotMarker.layer.masksToBounds = true
                     insertSubview(dotMarker, at: 0)
                     
                     dotMarker.setNeedsDisplay()
