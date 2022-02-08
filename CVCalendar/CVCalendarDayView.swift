@@ -489,8 +489,8 @@ extension CVCalendarDayView {
                 var y = rect.minY
                 
                 if (width > 30) {
-                    width -= 10
-                    x += 5
+                    width -= 18
+                    x += 9
                 }
                 if (height > 30) {
                     height -= 12
